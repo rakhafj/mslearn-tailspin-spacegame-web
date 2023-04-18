@@ -26,11 +26,7 @@ jobs:
     - name: Install Node.js modules as defined in package.json.
       run: |
         npm install --quite
-        npm install -g node-sass
-    
-    - name: Compile Sass (.scss) files to standard CSS (.css)
-      run: node-sass Tailspin.SpaceGame.Web/wwwroot
-      
+        
     - name: Minify JavaScript and CSS files
       run: echo `date` > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
       
