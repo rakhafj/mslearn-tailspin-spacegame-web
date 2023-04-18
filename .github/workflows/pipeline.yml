@@ -22,11 +22,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v3.0.3
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
         
     - name: Install Node.js modules as defined in package.json.
       run: npm install --quite
@@ -40,6 +35,11 @@ jobs:
     - name: Minify JavaScript and CSS files.
       run: gulp
       
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v3.0.3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+        
     - name: Install the latest .NET packages the app depends on.
       run: dotnet restore
       
